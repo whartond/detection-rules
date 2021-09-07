@@ -1,7 +1,7 @@
 [metadata]
 creation_date = "2020/07/02"
 maturity = "production"
-updated_date = "2021/05/27"
+updated_date = "2021/09/07"
 
 [rule]
 author = ["Elastic"]
@@ -38,40 +38,40 @@ timestamp_override = "event.ingested"
 type = "query"
 
 query = '''
-event.category:(network or network_traffic) and network.protocol:http and
-  (url.extension:(ps1 or rar) or url.path:(*.ps1 or *.rar)) and
+event.category:(network OR network_traffic) AND network.protocol:http AND
+  (url.extension:(ps1 OR rar) OR url.path:(*.ps1 OR *.rar)) AND
     not destination.ip:(
-      10.0.0.0/8 or
-      127.0.0.0/8 or
-      169.254.0.0/16 or
-      172.16.0.0/12 or
-      192.0.0.0/24 or
-      192.0.0.0/29 or
-      192.0.0.8/32 or
-      192.0.0.9/32 or
-      192.0.0.10/32 or
-      192.0.0.170/32 or
-      192.0.0.171/32 or
-      192.0.2.0/24 or
-      192.31.196.0/24 or
-      192.52.193.0/24 or
-      192.168.0.0/16 or
-      192.88.99.0/24 or
-      224.0.0.0/4 or
-      100.64.0.0/10 or
-      192.175.48.0/24 or
-      198.18.0.0/15 or
-      198.51.100.0/24 or
-      203.0.113.0/24 or
-      240.0.0.0/4 or
-      "::1" or
-      "FE80::/10" or
+      10.0.0.0\/8 OR
+      127.0.0.0\/8 OR
+      169.254.0.0\/16 OR
+      172.16.0.0\/12 OR
+      192.0.0.0\/24 OR
+      192.0.0.0\/29 OR
+      192.0.0.8\/32 OR
+      192.0.0.9\/32 OR
+      192.0.0.10\/32 OR
+      192.0.0.170\/32 OR
+      192.0.0.171\/32 OR
+      192.0.2.0\/24 OR
+      192.31.196.0\/24 OR
+      192.52.193.0\/24 OR
+      192.168.0.0\/16 OR
+      192.88.99.0\/24 OR
+      224.0.0.0\/4 OR
+      100.64.0.0\/10 OR
+      192.175.48.0\/24 OR
+      198.18.0.0\/15 OR
+      198.51.100.0\/24 OR
+      203.0.113.0\/24 OR
+      240.0.0.0\/4 OR
+      "::1" OR
+      "FE80::/10" OR
       "FF00::/8"
-    ) and
+    ) AND
     source.ip:(
-      10.0.0.0/8 or
-      172.16.0.0/12 or
-      192.168.0.0/16
+      10.0.0.0\/8 OR
+      172.16.0.0\/12 OR
+      192.168.0.0\/16
     )
 '''
 
